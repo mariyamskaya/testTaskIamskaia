@@ -20,9 +20,6 @@ public class MainPage extends PageObject {
   private WebElementFacade restoreDatabaseButton;
 
   public void typeQuery(String query) {
-//    JavascriptExecutor jse = (JavascriptExecutor)getDriver();
-//    jse.executeScript("document.getElementById('tryitform').value = '" + query + "'");
-//    jse.executeScript("document.getElementById('tryitform').setAttribute('value', '" + query + "')");
     Actions actions = new Actions(getDriver());
     actions.click(sqlQueryField).build().perform();
     actions.sendKeys(Keys.chord(Keys.CONTROL + "a" + Keys.BACK_SPACE)).build().perform();
