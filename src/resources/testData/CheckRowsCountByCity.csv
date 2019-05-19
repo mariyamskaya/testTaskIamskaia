@@ -1,0 +1,2 @@
+query, expectedRowsCount
+SELECT * FROM Customers WHERE City = 'London';,6

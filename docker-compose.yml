@@ -1,0 +1,7 @@
+     build:
+           context: ./
+           dockerfile: Dockerfile
+     command: bash -c "mvn clean && mvn verify"
+     volumes:
+     - "./:/app"
+     - "mavenRepository:/root/.m2"
