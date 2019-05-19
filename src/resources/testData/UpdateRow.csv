@@ -1,2 +1,2 @@
 updateQuery,selectQuery,customerId,newCustomerName,newCustomerContactName,newCustomerAddress,newCity,newPostalCode,newCountry
-"UPDATE Customers SET CustomerName='%s', ContactName='%s', Address='%s', City='%s', PostalCode='%s', Country='%s' WHERE CustomerID='%s';",SELECT * FROM Customers WHERE CustomerID='%s';,5,Maria,Test,TestAddress,Samara,123456,Russia
+"UPDATE Customers SET CustomerName='%s', ContactName='%s', Address='%s', City='%s', PostalCode='%s', Country='%s' WHERE CustomerID='%s';",SELECT * FROM Customers WHERE CustomerID='%s';,5,Perrier,Martín Sommer,TestAddress,Mannheim,123456A,Germany
