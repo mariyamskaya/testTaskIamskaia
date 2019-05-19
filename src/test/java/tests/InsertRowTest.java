@@ -35,7 +35,8 @@ public class InsertRowTest extends BaseTest {
 
   @Test
   public void insertRow() {
-    String insertSQL = String.format(this.insertQuery, this.customerName, this.contactName, this.address, this.city, this.postalCode, this.country);
+    String insertSQL = String.format(this.insertQuery, this.customerName, this.contactName, this.address,
+            this.city, this.postalCode, this.country);
     String selectSQL = String.format(this.selectQuery, this.postalCode);
 
     sendSQLQuerySteps.userOpenMainPage()
@@ -43,6 +44,7 @@ public class InsertRowTest extends BaseTest {
             .userClickOnRunSQLQueryButton()
             .userTypeSQLQuery(selectSQL)
             .userClickOnRunSQLQueryButton();
+
     checkCustomersTableSteps.receiveResultTable()
             .rowsCountShouldBe(1);
   }

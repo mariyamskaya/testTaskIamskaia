@@ -31,6 +31,7 @@ public class CheckRowsCountByCityTest extends BaseTest {
     sendSQLQuerySteps.userOpenMainPage()
             .userTypeSQLQuery(this.query)
             .userClickOnRunSQLQueryButton();
+
     checkCustomersTableSteps.receiveResultTable()
             .rowsCountShouldBe(expectedRowsCount);
   }

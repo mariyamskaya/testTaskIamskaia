@@ -44,6 +44,7 @@ public class UpdateRowTest extends BaseTest {
             .userClickOnRunSQLQueryButton()
             .userTypeSQLQuery(selectSQL)
             .userClickOnRunSQLQueryButton();
+
     checkCustomersTableSteps.receiveResultTable()
             .checkDataIsUpdated(this.customerId, this.newCustomerName, this.newCustomerContactName, this.newCustomerAddress,
                     this.newCity, this.newPostalCode, this.newCountry);

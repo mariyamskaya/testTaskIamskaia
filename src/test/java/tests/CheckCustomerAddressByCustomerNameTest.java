@@ -33,6 +33,7 @@ public class CheckCustomerAddressByCustomerNameTest extends BaseTest {
     makeSQLQuerySteps.userOpenMainPage()
             .userTypeSQLQuery(this.query)
             .userClickOnRunSQLQueryButton();
+
     checkCustomersTableSteps.receiveResultTable()
             .customerAddressShouldMatch(customerName, expectedAddress);
   }
