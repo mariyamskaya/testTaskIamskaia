@@ -15,11 +15,13 @@ import steps.SendSQLQuerySteps;
 @UseTestDataFrom(value = "src/resources/testData/InsertRow.csv")
 public class InsertRowTest extends BaseTest {
 
+  private String insertQuery;
+  private String selectQuery;
   private String customerName;
   private String contactName;
   private String address;
   private String city;
-  private String postalCode = RandomStringUtils.random(10, true, false);
+  private String postalCode = RandomStringUtils.random(10, true, false); // create unique ID for row
   private String country;
 
   @Steps
@@ -33,12 +35,13 @@ public class InsertRowTest extends BaseTest {
 
   @Test
   public void insertRow() {
+    String insertSQL = String.format(this.insertQuery, this.customerName, this.contactName, this.address, this.city, this.postalCode, this.country);
+    String selectSQL = String.format(this.selectQuery, this.postalCode);
+
     sendSQLQuerySteps.userOpenMainPage()
-            .userTypeSQLQuery("INSERT INTO Customers (CustomerName, ContactName, Address, City, PostalCode, Country) " +
-                    "VALUES ('" + this.customerName + "', '" + this.contactName + "', '" + this.address +
-                    "', '" + this.city + "', '" + this.postalCode + "', '" + this.country + "');")
+            .userTypeSQLQuery(insertSQL)
             .userClickOnRunSQLQueryButton()
-            .userTypeSQLQuery("SELECT * FROM Customers WHERE PostalCode = '" + this.postalCode + "';")
+            .userTypeSQLQuery(selectSQL)
             .userClickOnRunSQLQueryButton();
     checkCustomersTableSteps.receiveResultTable()
             .rowsCountShouldBe(1);

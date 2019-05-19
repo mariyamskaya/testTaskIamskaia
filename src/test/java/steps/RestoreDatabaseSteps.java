@@ -5,6 +5,7 @@ import net.thucydides.core.steps.ScenarioSteps;
 import pages.MainPage;
 
 public class RestoreDatabaseSteps extends ScenarioSteps {
+
   MainPage mainPage;
 
   @Step

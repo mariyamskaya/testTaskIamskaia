@@ -1,2 +1,2 @@
-customerName,	contactName,							address,											city,			country
-Yang Wang,					  Ann,					   Berkeley Gardens 12,				Bern,		Switzerland
+insertQuery,selectQuery,customerName,contactName,address,city,country
+"INSERT INTO Customers (CustomerName, ContactName, Address, City, PostalCode, Country) VALUES ('%s', '%s', '%s', '%s', '%s', '%s');",SELECT * FROM Customers WHERE PostalCode = '%s';,Yang Wang,Ann,Berkeley Gardens 12,Bern,Switzerland

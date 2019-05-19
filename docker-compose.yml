@@ -1,7 +1,12 @@
-     build:
-           context: ./
-           dockerfile: Dockerfile
-     command: bash -c "mvn clean && mvn verify"
-     volumes:
-     - "./:/app"
-     - "mavenRepository:/root/.m2"
+version: '3'
+services:
+  app:
+    build:
+          context: ./
+          dockerfile: Dockerfile
+    command: bash -c "mvn clean && mvn verify"
+    volumes:
+    - "./:/app"
+    - "mavenRepository:/root/.m2"
+volumes:
+  mavenRepository:

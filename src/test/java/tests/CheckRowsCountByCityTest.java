@@ -11,6 +11,7 @@ import steps.SendSQLQuerySteps;
 @RunWith(SerenityParameterizedRunner.class)
 @UseTestDataFrom(value = "src/resources/testData/CheckRowsCountByCity.csv")
 public class CheckRowsCountByCityTest extends BaseTest {
+
   private String query;
   private int expectedRowsCount;
 

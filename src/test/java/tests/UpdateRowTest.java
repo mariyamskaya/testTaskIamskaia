@@ -13,6 +13,7 @@ import steps.SendSQLQuerySteps;
 @RunWith(SerenityParameterizedRunner.class)
 @UseTestDataFrom(value = "src/resources/testData/UpdateRow.csv")
 public class UpdateRowTest extends BaseTest {
+
   private String updateQuery;
   private String selectQuery;
   private String customerId;
@@ -34,10 +35,14 @@ public class UpdateRowTest extends BaseTest {
 
   @Test
   public void updateRow() {
+    String insertSQL = String.format(this.updateQuery, this.newCustomerName, this.newCustomerContactName,
+            this.newCustomerAddress, this.newCity, this.newPostalCode, this.newCountry, this.customerId);
+    String selectSQL = String.format(this.selectQuery, this.customerId);
+
     sendSQLQuerySteps.userOpenMainPage()
-            .userTypeSQLQuery(this.updateQuery)
+            .userTypeSQLQuery(insertSQL)
             .userClickOnRunSQLQueryButton()
-            .userTypeSQLQuery(this.selectQuery)
+            .userTypeSQLQuery(selectSQL)
             .userClickOnRunSQLQueryButton();
     checkCustomersTableSteps.receiveResultTable()
             .checkDataIsUpdated(this.customerId, this.newCustomerName, this.newCustomerContactName, this.newCustomerAddress,
