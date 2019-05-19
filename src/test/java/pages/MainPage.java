@@ -3,8 +3,7 @@ package pages;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.DefaultUrl;
 import net.thucydides.core.pages.PageObject;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.support.FindBy;
 
 @DefaultUrl("https://www.w3schools.com/sql/trysql.asp?filename=trysql_select_all")
@@ -20,10 +19,8 @@ public class MainPage extends PageObject {
   private WebElementFacade restoreDatabaseButton;
 
   public void typeQuery(String query) {
-    Actions actions = new Actions(getDriver());
-    actions.click(sqlQueryField).build().perform();
-    actions.sendKeys(Keys.chord(Keys.CONTROL + "a" + Keys.BACK_SPACE)).build().perform();
-    actions.sendKeys(query).build().perform();
+    JavascriptExecutor js = (JavascriptExecutor) this.getDriver();
+    js.executeScript("window.editor.setValue(\"" + query +"\");");
   }
 
   public void clickOnRunSQLButton() {
