@@ -6,7 +6,6 @@ docker-compose up
 ```
 
 ### To see test results:
-1. Go to 'target' -> 'site' project folder 
+1. Go to 'target' -> 'site' -> 'serenity' project folder 
 2. Open index.html 
-
 
