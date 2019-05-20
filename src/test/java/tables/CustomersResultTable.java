@@ -4,11 +4,11 @@ import java.util.HashMap;
 
 public class CustomersResultTable extends ResultTable {
 
-  public boolean isCustomerAddressMatchCustomerName(String customerName, String expectedAddress) {
+  public boolean isCustomerAddressMatchContactName(String contactName, String expectedAddress) {
     for (int x = 0; x < this.resultTable.size(); x++) {
       HashMap<String, String> row = this.resultTable.get(x);
-      String contactName = row.get("ContactName");
-      if (contactName.equals(customerName)) {
+      String parsedContactName = row.get("ContactName");
+      if (parsedContactName.equals(contactName)) {
         return row.get("Address").equals(expectedAddress);
       }
     }
