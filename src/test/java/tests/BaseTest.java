@@ -14,7 +14,7 @@ public class BaseTest {
 
   @Before
   public void maximizeBrowserWindow() {
-    this.driver.manage().window().maximize();
+   // this.driver.manage().window().maximize();
   }
 
   public WebDriver getDriver() {

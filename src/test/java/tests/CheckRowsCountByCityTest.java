@@ -15,11 +15,6 @@ public class CheckRowsCountByCityTest extends BaseTest {
   private String query;
   private int expectedRowsCount;
 
-  public CheckRowsCountByCityTest() {
-    this.query = query;
-    this.expectedRowsCount = expectedRowsCount;
-  }
-
   @Steps
   SendSQLQuerySteps sendSQLQuerySteps;
 
@@ -33,6 +28,6 @@ public class CheckRowsCountByCityTest extends BaseTest {
             .userClickOnRunSQLQueryButton();
 
     checkCustomersTableSteps.receiveResultTable()
-            .rowsCountShouldBe(expectedRowsCount);
+            .rowsCountShouldBe(this.expectedRowsCount);
   }
 }

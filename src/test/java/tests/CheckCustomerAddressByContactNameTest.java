@@ -10,17 +10,11 @@ import steps.SendSQLQuerySteps;
 
 @RunWith(SerenityParameterizedRunner.class)
 @UseTestDataFrom(value = "src/resources/testData/CheckCustomerAddress.csv")
-public class CheckCustomerAddressByCustomerNameTest extends BaseTest {
+public class CheckCustomerAddressByContactNameTest extends BaseTest {
 
   private String query;
-  private String customerName;
+  private String contactName;
   private String expectedAddress;
-
-  public CheckCustomerAddressByCustomerNameTest() {
-    this.query = query;
-    this.customerName = customerName;
-    this.expectedAddress = expectedAddress;
-  }
 
   @Steps
   SendSQLQuerySteps makeSQLQuerySteps;
@@ -29,12 +23,12 @@ public class CheckCustomerAddressByCustomerNameTest extends BaseTest {
   CheckCustomersTableSteps checkCustomersTableSteps;
 
   @Test
-  public void checkCustomerAddressByCustomerName() {
+  public void checkCustomerAddressByContactName() {
     makeSQLQuerySteps.userOpenMainPage()
             .userTypeSQLQuery(this.query)
             .userClickOnRunSQLQueryButton();
 
     checkCustomersTableSteps.receiveResultTable()
-            .customerAddressShouldMatch(customerName, expectedAddress);
+            .customerAddressShouldMatch(this.contactName, this.expectedAddress);
   }
 }

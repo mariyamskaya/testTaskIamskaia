@@ -23,6 +23,7 @@ public class InsertRowTest extends BaseTest {
   private String city;
   private String postalCode = RandomStringUtils.random(10, true, false); // create unique ID for row
   private String country;
+  private int expectedRowCount = 1;
 
   @Steps
   SendSQLQuerySteps sendSQLQuerySteps;
@@ -46,7 +47,7 @@ public class InsertRowTest extends BaseTest {
             .userClickOnRunSQLQueryButton();
 
     checkCustomersTableSteps.receiveResultTable()
-            .rowsCountShouldBe(1);
+            .rowsCountShouldBe(this.expectedRowCount);
   }
 
   @After

@@ -1,2 +1,2 @@
-query,customerName,expectedAddress
+query,contactName,expectedAddress
 SELECT * FROM Customers;,Giovanni Rovelli,Via Ludovico il Moro 22
