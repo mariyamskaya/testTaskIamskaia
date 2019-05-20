@@ -26,7 +26,7 @@ public class ResultTable extends PageObject {
     for (WebElementFacade header : headersList) {
       textHeaders.add(header.getAttribute("textContent"));
     }
-    // Fill Hashmap with values in accordance with existing columns
+    // Fill HashMap with values in accordance with existing columns
     int i = 0;
     for (WebElementFacade row : rowsList) {
       List<WebElementFacade> rowColumnsList = row.thenFindAll(By.tagName("td"));
